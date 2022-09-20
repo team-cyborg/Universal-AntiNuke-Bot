@@ -17,7 +17,7 @@ module.exports = (client) => {
 
             client.commands.set(cmd.data.name, cmd);
             commands.push(cmd.data);
-            
-            rest.put(Routes.applicationGuildCommands(settings.id, settings.server), { body: commands }).then(data => console.log(`Successfully registered ${data.length} application commands.`)).catch(console.error);
+
       }
+      rest.put(Routes.applicationGuildCommands(settings.id, settings.server), { body: commands }).then(data => { console.log(`Successfully registered ${data.length} application commands.`); }).catch(console.error);
 }
