@@ -1,17 +1,36 @@
+const { Client, Message } = require("discord.js/typings");
+
 module.exports = {
       name: 'interactionCreate',
-      once: true,
+      once: false,
 
-      run: async (client, interaction) => {
-            const command = client.commands.get(interaction.commandName);
-
-            if (!command) await interaction.reply({ content: `Command \`${command}\` not found.` });
-
-            try {
-                  await command.run(interaction);
-            } catch (err) {
-                  console.error(err);
-                  await interaction.reply({ content: 'There was an error while executing this command!', ephemeral: true });
+      /**
+       * 
+       * @param {Client} client 
+       * @param {Message} message 
+       */
+      run: async (client, message) => {
+            if (message.mentions.users.has(client.user.id)) {
+                  message.reply({
+                        embeds: [
+                              {
+                                    title: 'Universal™',
+                                    description: [
+                                          '> Greetings, I am universal, a discord antinuke bot dedicated to preventing guild nukes.',
+                                          '> Use ` /help ` to get started!'
+                                    ].join('\n'),
+                                    color: "#5440cd",
+                                    thumbnail: {
+                                          url: client.user.displayAvatarURL()
+                                    }
+                              }
+                        ]
+                  }).then((msg) => {
+                        setTimeout(() => {
+                              msg.delete();
+                        }, 3000);
+                  })
             }
       }
+}
 }
