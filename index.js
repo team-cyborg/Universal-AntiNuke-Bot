@@ -2,7 +2,8 @@
 const { Client, GatewayIntentBits, Collection, ActivityType } = require("discord.js");
 const settings = require("./config.json");
 const fs = require("node:fs");
-const { Enmap } = require("enmap");
+const Enmap = require("enmap");
+const path = require("node:path");
 require("dotenv").config();
 
 // client instance
@@ -23,7 +24,8 @@ const client = new Client({
 });
 
 // setting up database
-client.config 
+client.config = new Enmap({ name: 'guild_config', dataDir: path.join(__dirname, 'database/config') })
+client.backup = new Enmap({ name: 'guild_backup', dataDir: path.join(__dirname, 'database/backup') })
 
 // running all handler methods
 fs.readdirSync('./handlers').forEach(handler => {

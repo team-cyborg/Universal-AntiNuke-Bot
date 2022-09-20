@@ -2,14 +2,39 @@ const { default: Enmap } = require("enmap");
 
 module.exports = {
   data: {
-    name: 'whitelist-user',
+    name: 'whitelist',
     description: 'Whitelist a user.',
     options: [
       {
-        name: 'user',
-        description: 'the user to whitelist',
-        type: 6,
-        required: true
+        name: 'add',
+        description: 'Adds a user.',
+        type: 1,
+        options: [
+          {
+            name: 'user',
+            description: 'a user',
+            type: 6
+          }
+        ]
+      },
+
+      {
+        name: 'remove',
+        description: 'Removes a user.',
+        type: 1,
+        options: [
+          {
+            name: 'user',
+            description: 'a user',
+            type: 6
+          }
+        ]
+      },
+
+      {
+        name: 'show',
+        description: 'The whole list of users whitelisted.',
+        type: 1
       }
     ]
   },
@@ -19,9 +44,27 @@ module.exports = {
    * @param {import("discord.js").CommandInteraction} interaction 
    */
   async run(interaction) {
-    await interaction.reply('under developement!')
-    // const user_to_whitelist = interaction.options.getUser('user');
 
-    // if (user_to_whitelist.id === interaction.guild.ownerId) await interaction.reply('Server owners are whitelisted by default!');
+    await interaction.reply('under developement!')
+    const user = interaction.options.getUser('user');
+
+    if (interaction.options.getSubcommand() === 'add') {
+      if (interaction.user.id === interaction.guild.ownerId) {
+
+      }
+    }
+
+    if (interaction.options.getSubcommand() === 'remove') {
+      if (interaction.user.id === interaction.guild.ownerId) {
+
+      }
+    }
+
+    if (interaction.options.getSubcommand() === 'list') {
+      if (interaction.user.id === interaction.guild.ownerId) {
+
+      }
+    }
+
   },
 };
