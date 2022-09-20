@@ -1,4 +1,4 @@
-const { Client } = require("discord.js/typings");
+const { Client } = require("discord.js");
 
 module.exports = {
       name: 'interactionCreate',

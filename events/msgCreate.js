@@ -1,4 +1,4 @@
-const { Client, Message } = require("discord.js/typings");
+const { Client, Message } = require("discord.js");
 
 module.exports = {
       name: 'messageCreate',
