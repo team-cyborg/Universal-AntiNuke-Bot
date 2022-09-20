@@ -23,6 +23,7 @@ const client = new Client({
 });
 
 // setting up database
+client.config 
 
 // running all handler methods
 fs.readdirSync('./handlers').forEach(handler => {
