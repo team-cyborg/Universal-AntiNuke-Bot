@@ -19,7 +19,7 @@ module.exports = {
                                           '> Greetings, I am universal, a discord antinuke bot dedicated to preventing guild nukes.',
                                           '> Use ` /help ` to get started!'
                                     ].join('\n'),
-                                    color: "#5440cd",
+                                    color: 0x5440cd,
                                     thumbnail: {
                                           url: client.user.displayAvatarURL()
                                     }
